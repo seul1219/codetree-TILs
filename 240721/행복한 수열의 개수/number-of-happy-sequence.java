@@ -18,7 +18,7 @@ public class Main {
         }
 
         if(M==1) {
-            System.out.println(N*N);
+            System.out.println(N*2);
         } else {
             int ans = 0;
 
