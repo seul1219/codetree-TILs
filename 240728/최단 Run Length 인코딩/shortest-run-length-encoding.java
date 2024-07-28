@@ -45,11 +45,11 @@ public class Main {
                 cen = str.charAt(i);
                 con += 2;
                 num = 1;
+            } else {
+                num++;
                 if(num>=10) {
                     con += 1;
                 }
-            } else {
-                num++;
             }
         }
 
