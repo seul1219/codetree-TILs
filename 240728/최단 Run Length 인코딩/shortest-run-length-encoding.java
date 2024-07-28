@@ -38,11 +38,18 @@ public class Main {
     public static int runLen(String str) {
         char cen = str.charAt(0);
         int con = 2;
+        int num = 1;
 
         for(int i=1; i<len; i++) {
             if(str.charAt(i)!=cen) {
                 cen = str.charAt(i);
-                con+=2;
+                con += 2;
+                num = 1;
+                if(num>=10) {
+                    con += 1;
+                }
+            } else {
+                num++;
             }
         }
 
