@@ -3,8 +3,9 @@ import java.util.*;
 
 public class Main {
     public static char[] cArr;
+    public static boolean[] alpha = new boolean[6];
     public static int cnt = 0;
-    public static int[] arr;
+    public static int[] arr = new int[6];
     public static int max = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
@@ -12,45 +13,48 @@ public class Main {
         String str = br.readLine();
         cArr = new char[str.length()];
 
-        //알파벳 개수
         for(int i=0; i<cArr.length; i++) {
             cArr[i] = str.charAt(i);
             if(cArr[i]>='a' && cArr[i]<='f') {
-                cnt++;
+                if(!alpha[cArr[i]-'a']) {
+                    alpha[cArr[i]-'a'] = true;
+                }
             }
         }
-
-        arr = new int[cnt];
 
         select(0);
 
         System.out.println(max);
     }
 
+    //알파벳에 숫자 넣기
     public static void select(int cur) {
-        if(cur==cnt) {
+        if(cur==6) {
             //계산
             max = Math.max(max, cal());
             return;
         }
 
         for(int i=1; i<=4; i++) {
-            arr[cur] = i;
-            select(cur+1);
+            if(!alpha[cur]) {
+                select(cur+1);
+            } else {
+                arr[cur] = i;
+                select(cur+1);
+            }
         }
     }
 
     public static int cal() {
-        int res = arr[0];
-        int th = 1;
+        int res = arr[cArr[0]-'a'];
 
         for(int i=2; i<cArr.length; i++) {
             if(cArr[i-1]=='+') {
-                res += arr[th++];
+                res += arr[cArr[i]-'a'];
             } else if(cArr[i-1]=='-') {
-                res -= arr[th++];
+                res -= arr[cArr[i]-'a'];
             } else if(cArr[i-1]=='*') {
-                res *= arr[th++];
+                res *= arr[cArr[i]-'a'];
             }
         }
 
