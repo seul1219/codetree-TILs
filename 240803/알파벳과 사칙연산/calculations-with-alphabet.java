@@ -4,7 +4,6 @@ import java.util.*;
 public class Main {
     public static char[] cArr;
     public static boolean[] alpha = new boolean[6];
-    public static int cnt = 0;
     public static int[] arr = new int[6];
     public static int max = Integer.MIN_VALUE;
 
