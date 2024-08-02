@@ -30,21 +30,21 @@ public class Main {
     //알파벳에 숫자 넣기
     public static void select(int cur) {
         if(cur==6) {
-            //계산
             max = Math.max(max, cal());
             return;
         }
 
         for(int i=1; i<=4; i++) {
-            if(!alpha[cur]) {
+            if(alpha[cur]) {
+                arr[cur] = i;
                 select(cur+1);
             } else {
-                arr[cur] = i;
                 select(cur+1);
             }
         }
     }
 
+    //계산
     public static int cal() {
         int res = arr[cArr[0]-'a'];
 
