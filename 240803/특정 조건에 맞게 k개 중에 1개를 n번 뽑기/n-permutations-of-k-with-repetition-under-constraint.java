@@ -5,7 +5,7 @@ public class Main {
     public static int K;
     public static int N;
     public static int[] arr;
-    // public static boolean[][] visited;
+    public static int[] visited;
     public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -16,20 +16,14 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
 
         arr = new int[N];
-        boolean[][] visited = new boolean[K][N];
+        visited = new int[K];
 
-        if(N==1) {
-            for(int i=1; i<=K; i++) {
-                sb.append(i).append("\n");
-            }
-        } else {
-            select(0, visited);
-        }
+        select(0);
 
         System.out.println(sb.toString());
     }   
 
-    public static void select(int cur, boolean[][] visited) {
+    public static void select(int cur) {
         if(cur==N) {
             for(int i=0; i<arr.length; i++) {
                 sb.append(arr[i]).append(" ");
@@ -40,24 +34,12 @@ public class Main {
         }
 
         for(int i=0; i<K; i++) {
-            int res = check(visited, i);
-            if(res!=N-1) {
+            if (visited[i] < 2) { 
                 arr[cur] = i+1;
-                visited[i][res] = true;
-                select(cur+1, visited);
-                visited[i][res] = false;
+                visited[i]++;
+                select(cur + 1);
+                visited[i]--;
             }
         }
-    }
-
-    public static int check(boolean[][] visited, int r) {
-        int cur = 0;
-        for(int c=0; c<N; c++) {
-            if(!visited[r][c]) {
-                cur = c;
-                break;
-            }
-        }
-        return cur;
     }
 }
