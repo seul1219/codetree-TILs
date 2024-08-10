@@ -50,7 +50,7 @@ public class Main {
         double max = 0;
         for(int i=0; i<M; i++) {
             for(int j=i+1; j<M; j++) {
-                max = Math.pow(x[i]-x[j], 2) + Math.pow(y[i]-y[j], 2);
+                max = Math.max(max, Math.pow(x[i]-x[j], 2) + Math.pow(y[i]-y[j], 2));
             }
         }
         return max;
