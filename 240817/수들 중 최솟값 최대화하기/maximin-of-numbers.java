@@ -46,9 +46,9 @@ public class Main {
             if(!visitedR[i]) {
                 for(int j=0; j<N; j++) {
                     if(!visitedC[j]) {
-                        arr[idx] = num[i][j];
                         visitedR[i] = true;
                         visitedC[j] = true;
+                        arr[idx] = num[i][j];
                         sketch(idx+1, r+1, c+1);
                         visitedR[i] = false;
                         visitedC[j] = false;
