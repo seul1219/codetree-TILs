@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static int N;
-    public static int M;
     public static List<Integer>[] list;
     public static boolean[] visited;
     public static int res = 0;
