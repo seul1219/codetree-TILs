@@ -43,16 +43,19 @@ public class Main {
         }
 
         for(int i=0; i<N; i++) {
-            for(int j=0; j<N; j++) {
-                if(!visitedR[i] && !visitedC[j]) {
-                    arr[idx] = num[i][j];
-                    visitedR[i] = true;
-                    visitedC[j] = true;
-                    sketch(idx+1, r+1, c+1);
-                    visitedR[i] = false;
-                    visitedC[j] = false;
+            if(!visitedR[i]) {
+                for(int j=0; j<N; j++) {
+                    if(!visitedC[j]) {
+                        arr[idx] = num[i][j];
+                        visitedR[i] = true;
+                        visitedC[j] = true;
+                        sketch(idx+1, r+1, c+1);
+                        visitedR[i] = false;
+                        visitedC[j] = false;
+                    }
                 }
             }
+           
         }
     }
 }
