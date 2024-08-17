@@ -49,7 +49,7 @@ public class Main {
                         visitedR[i] = true;
                         visitedC[j] = true;
                         arr[idx] = num[i][j];
-                        sketch(idx+1, r+1, c+1);
+                        sketch(idx+1, i+1, j+1);
                         visitedR[i] = false;
                         visitedC[j] = false;
                     }
