@@ -26,12 +26,12 @@ public class Main {
         visitedC = new boolean[N];
         arr = new int[N];
 
-        sketch(0, 0, 0);
+        sketch(0);
 
         System.out.println(max);
     }
 
-    public static void sketch(int idx, int r, int c) {
+    public static void sketch(int idx) {
         if(idx==N) {
             int min = Integer.MAX_VALUE;
             for(int i=0; i<N; i++) {
@@ -49,7 +49,7 @@ public class Main {
                         visitedR[i] = true;
                         visitedC[j] = true;
                         arr[idx] = num[i][j];
-                        sketch(idx+1, i+1, j+1);
+                        sketch(idx+1);
                         visitedR[i] = false;
                         visitedC[j] = false;
                     }
