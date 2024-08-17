@@ -5,7 +5,7 @@ public class Main {
     public static int N;
     public static int[][] num;
     public static boolean[][] visited;
-    public static int max = 0;
+    public static int max;
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
