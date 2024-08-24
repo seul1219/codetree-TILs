@@ -17,13 +17,13 @@ public class Main {
             }
         }
 
+        int max = -1;
         Queue<int[]> que = new LinkedList<>();
-        que.offer(new int[] {0, 0, 0});
+        que.offer(new int[] {0, 0, max});
 
         int[] dr = {-1, 1, 0, 0};
         int[] dc = {0, 0, -1, 1};
         
-        int max = -1;
         boolean[][] visited = new boolean[N][M];
         while(!que.isEmpty()) {
             int[] cur = que.poll();
