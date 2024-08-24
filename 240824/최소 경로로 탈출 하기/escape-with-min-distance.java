@@ -19,7 +19,7 @@ public class Main {
 
         int max = -1;
         Queue<int[]> que = new LinkedList<>();
-        que.offer(new int[] {0, 0, max});
+        que.offer(new int[] {0, 0, 0});
 
         int[] dr = {-1, 1, 0, 0};
         int[] dc = {0, 0, -1, 1};
@@ -27,7 +27,10 @@ public class Main {
         boolean[][] visited = new boolean[N][M];
         while(!que.isEmpty()) {
             int[] cur = que.poll();
-            max = Math.max(cur[2], max);
+
+            if(cur[0]==N-1 && cur[1]==M-1) {
+                max = Math.max(cur[2], max);
+            }
 
             for(int d=0; d<4; d++) {
                 int nr = dr[d] + cur[0];
