@@ -16,6 +16,7 @@ public class Main {
                 res[r][c] = -2;
             }
         }
+        
         Queue<int[]> que = new LinkedList<>();
 
         for(int r=0; r<N; r++) {
